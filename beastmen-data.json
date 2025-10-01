@@ -511,23 +511,23 @@
       { "id": "gnarlstaff", "name": "Gnarlstaff", "cost": 30, "description": "+1 to casting/channeling. Each Magic Phase: pick terrain within 18\", D6 S4 AP-1 hits to units within (2D6 if forest)", "wizardOnly": true },
       { "id": "hagtree-fetish", "name": "Hagtree Fetish", "cost": 25, "description": "Choose enemy unit within 24\" each Magic Phase. Re-roll failed wounds vs that unit during Magic Phase", "wizardOnly": true }
     ],
-    "chaosMutations": [
-      { "id": "uncanny-senses", "name": "Uncanny Senses", "cost": 5, "description": "+1 Initiative" },
-      { "id": "gnarled-hides", "name": "Gnarled Hides", "cost": 5, "description": "Improve armour save by 1" },
-      { "id": "gouge-tusks", "name": "Gouge-Tusks", "cost": 10, "description": "Gain Impact Hits (1) or +1 to existing Impact Hits" },
-      { "id": "many-limbed-fiend", "name": "Many-Limbed Fiend", "cost": 15, "description": "+1 Attack (bonus attack must use Hand Weapon)" },
-      { "id": "rune-beast-ascendant", "name": "Rune of the Beast Ascendant", "cost": 15, "description": "+1 Leadership" },
-      { "id": "muscular-monstrosity", "name": "Muscular Monstrosity", "cost": 20, "description": "+1 Strength" },
-      { "id": "crown-of-horns", "name": "Crown of Horns", "cost": 20, "description": "Characters only. Bearer and unit gain Stubborn" },
-      { "id": "pelt-of-midnight", "name": "Pelt of Midnight", "cost": 25, "description": "Characters only. Enemy shooting -1 To Hit" },
-      { "id": "slug-skin", "name": "Slug-Skin", "cost": 30, "description": "Enemy must re-roll To Hit rolls in combat vs bearer" }
-    ],
-    "standards": [
+"standards": [
       { "id": "rampaging-banner", "name": "Rampaging Banner", "cost": 40, "description": "Friendly Beastmen within 12\": +3\" max charge range, +D3 to charge rolls" },
       { "id": "manbane-standard", "name": "Manbane Standard", "cost": 30, "description": "Enemy units within 12\" suffer -1 LD (min 2)" },
       { "id": "totem-of-rust", "name": "Totem of Rust", "cost": 25, "description": "Enemy units in contact suffer -1 to Armour Save rolls" },
       { "id": "gore-banner", "name": "Gore Banner", "cost": 20, "description": "Unit carrying banner gains Terror" },
       { "id": "banner-of-outrage", "name": "Banner of Outrage", "cost": 15, "description": "Roll extra D6 for Primal Fury tests, discard one die of choice" }
     ]
-  }
+  },
+  "chaosMutations": [
+    { "id": "uncanny-senses", "name": "Uncanny Senses", "cost": 5, "description": "+1 Initiative" },
+    { "id": "gnarled-hides", "name": "Gnarled Hides", "cost": 5, "description": "Improve armour save by 1" },
+    { "id": "gouge-tusks", "name": "Gouge-Tusks", "cost": 10, "description": "Gain Impact Hits (1) or +1 to existing Impact Hits" },
+    { "id": "many-limbed-fiend", "name": "Many-Limbed Fiend", "cost": 15, "description": "+1 Attack (bonus attack must use Hand Weapon)" },
+    { "id": "rune-beast-ascendant", "name": "Rune of the Beast Ascendant", "cost": 15, "description": "+1 Leadership" },
+    { "id": "muscular-monstrosity", "name": "Muscular Monstrosity", "cost": 20, "description": "+1 Strength" },
+    { "id": "crown-of-horns", "name": "Crown of Horns", "cost": 20, "description": "Characters only. Bearer and unit gain Stubborn" },
+    { "id": "pelt-of-midnight", "name": "Pelt of Midnight", "cost": 25, "description": "Characters only. Enemy shooting -1 To Hit" },
+    { "id": "slug-skin", "name": "Slug-Skin", "cost": 30, "description": "Enemy must re-roll To Hit rolls in combat vs bearer" }
+  ]
 }
