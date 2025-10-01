@@ -1,0 +1,492 @@
+{
+  "armyName": "Beastmen Brayherds",
+  "version": "1.0",
+  "categories": {
+    "lords": {
+      "name": "Lords",
+      "units": [
+        {
+          "id": "beastlord",
+          "name": "Beastlord",
+          "cost": 135,
+          "stats": { "M": 5, "WS": 6, "BS": 3, "S": 5, "T": 5, "W": 3, "I": 5, "A": 4, "Ld": 9 },
+          "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Crushing Blows", "Warband"],
+          "options": [
+            { "name": "Additional Hand Weapon", "cost": 3 },
+            { "name": "Great Weapon", "cost": 4 },
+            { "name": "Light Armour", "cost": 2 },
+            { "name": "Heavy Armour", "cost": 4 },
+            { "name": "Shield", "cost": 2 },
+            { "name": "Chaos Steed", "cost": 12 },
+            { "name": "Tuskgor Chariot", "cost": 90 },
+            { "name": "Razorgor Chariot", "cost": 120 },
+            { "name": "Ambushers", "cost": 10 },
+            { "name": "Brayhorn", "cost": 10 }
+          ],
+          "magicItemLimit": 100,
+          "canBeBSB": true,
+          "canBeGeneral": true
+        },
+        {
+          "id": "doombull",
+          "name": "Doombull",
+          "cost": 225,
+          "stats": { "M": 6, "WS": 6, "BS": 3, "S": 6, "T": 5, "W": 4, "I": 4, "A": 5, "Ld": 8 },
+          "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Crushing Blows", "Warband"],
+          "options": [
+            { "name": "Additional Hand Weapon", "cost": 3 },
+            { "name": "Great Weapon", "cost": 4 },
+            { "name": "Light Armour", "cost": 2 },
+            { "name": "Heavy Armour", "cost": 4 },
+            { "name": "Shield", "cost": 5 }
+          ],
+          "magicItemLimit": 100
+        },
+        {
+          "id": "great-bray-shaman",
+          "name": "Great Bray-Shaman",
+          "cost": 135,
+          "stats": { "M": 5, "WS": 4, "BS": 3, "S": 4, "T": 4, "W": 3, "I": 4, "A": 2, "Ld": 8 },
+          "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Warband", "Wizard Level 3"],
+          "options": [
+            { "name": "Braystaff", "cost": 0 },
+            { "name": "Wizard Level 4", "cost": 30 }
+          ],
+          "magicItemLimit": 100
+        }
+      ]
+    },
+    "heroes": {
+      "name": "Heroes",
+      "units": [
+        {
+          "id": "wargor",
+          "name": "Wargor",
+          "cost": 50,
+          "stats": { "M": 5, "WS": 5, "BS": 3, "S": 4, "T": 4, "W": 2, "I": 4, "A": 3, "Ld": 7 },
+          "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Warband"],
+          "options": [
+            { "name": "Additional Hand Weapon", "cost": 3 },
+            { "name": "Great Weapon", "cost": 4 },
+            { "name": "Light Armour", "cost": 2 },
+            { "name": "Heavy Armour", "cost": 4 },
+            { "name": "Shield", "cost": 2 },
+            { "name": "Chaos Steed", "cost": 12 },
+            { "name": "Tuskgor Chariot", "cost": 90 },
+            { "name": "Ambushers", "cost": 10 },
+            { "name": "Brayhorn", "cost": 10 }
+          ],
+          "magicItemLimit": 50,
+          "canBeBSB": true,
+          "canBeGeneral": true
+        },
+        {
+          "id": "gorebull",
+          "name": "Gorebull",
+          "cost": 115,
+          "stats": { "M": 6, "WS": 5, "BS": 3, "S": 5, "T": 5, "W": 4, "I": 4, "A": 4, "Ld": 7 },
+          "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Crushing Blows", "Warband"],
+          "options": [
+            { "name": "Additional Hand Weapon", "cost": 3 },
+            { "name": "Great Weapon", "cost": 4 },
+            { "name": "Light Armour", "cost": 2 },
+            { "name": "Heavy Armour", "cost": 4 },
+            { "name": "Shield", "cost": 5 }
+          ],
+          "magicItemLimit": 50
+        },
+        {
+          "id": "bray-shaman",
+          "name": "Bray-Shaman",
+          "cost": 65,
+          "stats": { "M": 5, "WS": 4, "BS": 3, "S": 4, "T": 4, "W": 2, "I": 4, "A": 1, "Ld": 7 },
+          "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Warband", "Wizard Level 1"],
+          "options": [
+            { "name": "Braystaff", "cost": 0 },
+            { "name": "Wizard Level 2", "cost": 30 }
+          ],
+          "magicItemLimit": 50
+        },
+        {
+          "id": "centigor-chieftain",
+          "name": "Centigor Chieftain",
+          "cost": 85,
+          "stats": { "M": 8, "WS": 5, "BS": 3, "S": 4, "T": 4, "W": 2, "I": 4, "A": 3, "Ld": 8 },
+          "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Crushing Blows", "Warband", "Fast Cavalry", "Drunken"],
+          "options": [
+            { "name": "Additional Hand Weapon", "cost": 3 },
+            { "name": "Great Weapon", "cost": 4 },
+            { "name": "Light Armour", "cost": 2 },
+            { "name": "Heavy Armour", "cost": 4 },
+            { "name": "Shield", "cost": 2 }
+          ],
+          "magicItemLimit": 50
+        }
+      ]
+    },
+    "core": {
+      "name": "Core",
+      "units": [
+        {
+          "id": "gor-herds",
+          "name": "Gor Herds",
+          "costPerModel": 7,
+          "minSize": 10,
+          "stats": { "M": 5, "WS": 4, "BS": 3, "S": 4, "T": 4, "W": 1, "I": 3, "A": 1, "Ld": 7 },
+          "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Warband"],
+          "options": [
+            { "name": "Additional Hand Weapon", "costPerModel": 2 },
+            { "name": "Shield", "costPerModel": 1 }
+          ],
+          "command": [
+            { "name": "True-Horn", "cost": 5 },
+            { "name": "Banner", "cost": 5 },
+            { "name": "Musician", "cost": 5 }
+          ],
+          "marks": [
+            { "name": "Mark of Khorne", "costPerModel": 2 },
+            { "name": "Mark of Tzeentch", "costPerModel": 2 },
+            { "name": "Mark of Nurgle", "costPerModel": 2 },
+            { "name": "Mark of Slaanesh", "costPerModel": 2 }
+          ]
+        },
+        {
+          "id": "ungor-herds",
+          "name": "Ungor Herds",
+          "costPerModel": 4,
+          "minSize": 10,
+          "stats": { "M": 5, "WS": 3, "BS": 3, "S": 3, "T": 3, "W": 1, "I": 3, "A": 1, "Ld": 6 },
+          "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Warband", "Skirmishers", "Move Through Cover"],
+          "options": [
+            { "name": "Throwing Spears", "costPerModel": 0 },
+            { "name": "Thrusting Spears", "costPerModel": 0 },
+            { "name": "Shortbows", "costPerModel": 0 }
+          ],
+          "command": [
+            { "name": "Half-Horn", "cost": 5 },
+            { "name": "Banner", "cost": 5 },
+            { "name": "Musician", "cost": 5 }
+          ],
+          "marks": [
+            { "name": "Mark of Khorne", "costPerModel": 2 },
+            { "name": "Mark of Tzeentch", "costPerModel": 2 },
+            { "name": "Mark of Nurgle", "costPerModel": 2 },
+            { "name": "Mark of Slaanesh", "costPerModel": 2 }
+          ]
+        },
+        {
+          "id": "chaos-warhounds",
+          "name": "Chaos Warhounds",
+          "costPerModel": 5,
+          "minSize": 5,
+          "stats": { "M": 7, "WS": 3, "BS": 0, "S": 4, "T": 3, "W": 1, "I": 3, "A": 1, "Ld": 5 },
+          "specialRules": ["Primal Fury", "Bestial Charge", "Fast Cavalry", "Vanguard"],
+          "options": [
+            { "name": "Armoured Hide", "costPerModel": 1 },
+            { "name": "Poisoned Attacks", "costPerModel": 1 },
+            { "name": "Vanguard", "costPerModel": 1 }
+          ]
+        },
+        {
+          "id": "tuskgor-chariots",
+          "name": "Tuskgor Chariots",
+          "costPerModel": 80,
+          "minSize": 1,
+          "stats": { "M": 7, "WS": 4, "BS": 3, "S": 5, "T": 4, "W": 4, "I": 3, "A": 3, "Ld": 7 },
+          "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Razor Tusks", "Impact Hits (D6+1)", "First Charge", "Warband"],
+          "marks": [
+            { "name": "Mark of Khorne", "cost": 15 },
+            { "name": "Mark of Tzeentch", "cost": 20 },
+            { "name": "Mark of Nurgle", "cost": 15 },
+            { "name": "Mark of Slaanesh", "cost": 10 }
+          ]
+        },
+        {
+          "id": "razorgor-herds",
+          "name": "Razorgor Herds",
+          "costPerModel": 32,
+          "minSize": 1,
+          "stats": { "M": 7, "WS": 3, "BS": 0, "S": 5, "T": 4, "W": 3, "I": 3, "A": 3, "Ld": 5 },
+          "specialRules": ["Primal Fury", "Bestial Charge", "Crushing Blows", "Razor Tusks"]
+        }
+      ]
+    },
+    "special": {
+      "name": "Special",
+      "units": [
+        {
+          "id": "bestigor-herds",
+          "name": "Bestigor Herds",
+          "costPerModel": 12,
+          "minSize": 10,
+          "stats": { "M": 5, "WS": 5, "BS": 3, "S": 4, "T": 4, "W": 1, "I": 4, "A": 2, "Ld": 7 },
+          "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Bestial Charge", "Despoilers", "Warband"],
+          "command": [
+            { "name": "Gouge-Horn", "cost": 6 },
+            { "name": "Banner", "cost": 12 },
+            { "name": "Musician", "cost": 12 }
+          ],
+          "marks": [
+            { "name": "Mark of Khorne", "costPerModel": 2 },
+            { "name": "Mark of Tzeentch", "costPerModel": 2 },
+            { "name": "Mark of Nurgle", "costPerModel": 2 },
+            { "name": "Mark of Slaanesh", "costPerModel": 2 }
+          ]
+        },
+        {
+          "id": "centigor-herds",
+          "name": "Centigor Herds",
+          "costPerModel": 9,
+          "minSize": 5,
+          "stats": { "M": 8, "WS": 4, "BS": 3, "S": 4, "T": 4, "W": 1, "I": 3, "A": 1, "Ld": 6 },
+          "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Bestial Charge", "Warband", "Fast Cavalry", "Drunken"],
+          "options": [
+            { "name": "Throwing Axes", "costPerModel": 0 },
+            { "name": "Javelins", "costPerModel": 0 },
+            { "name": "Throwing Spears", "costPerModel": 0 },
+            { "name": "Cavalry Spears", "costPerModel": 0 },
+            { "name": "Great Weapons", "costPerModel": 2 }
+          ],
+          "command": [
+            { "name": "Gorehoof", "cost": 6 },
+            { "name": "Banner", "cost": 9 },
+            { "name": "Musician", "cost": 9 }
+          ],
+          "marks": [
+            { "name": "Mark of Khorne", "costPerModel": 2 },
+            { "name": "Mark of Tzeentch", "costPerModel": 2 },
+            { "name": "Mark of Nurgle", "costPerModel": 2 },
+            { "name": "Mark of Slaanesh", "costPerModel": 2 }
+          ]
+        },
+        {
+          "id": "minotaur-herds",
+          "name": "Minotaur Herds",
+          "costPerModel": 27,
+          "minSize": 3,
+          "stats": { "M": 6, "WS": 4, "BS": 3, "S": 5, "T": 4, "W": 3, "I": 3, "A": 3, "Ld": 7 },
+          "specialRules": ["Primal Fury", "Bestial Charge", "Crushing Blows", "Mark of Chaos Undivided", "Fear", "Impact Hits (1)"],
+          "options": [
+            { "name": "Additional Hand Weapon", "costPerModel": 2 },
+            { "name": "Great Weapon", "costPerModel": 4 },
+            { "name": "Light Armour", "costPerModel": 2 },
+            { "name": "Heavy Armour", "costPerModel": 4 },
+            { "name": "Shield", "costPerModel": 2 }
+          ],
+          "command": [
+            { "name": "Bloodkine", "cost": 27 },
+            { "name": "Banner", "cost": 27 },
+            { "name": "Musician", "cost": 27 }
+          ],
+          "marks": [
+            { "name": "Mark of Khorne", "costPerModel": 4 },
+            { "name": "Mark of Tzeentch", "costPerModel": 4 },
+            { "name": "Mark of Nurgle", "costPerModel": 4 },
+            { "name": "Mark of Slaanesh", "costPerModel": 4 }
+          ]
+        },
+        {
+          "id": "harpies",
+          "name": "Harpies",
+          "costPerModel": 9,
+          "minSize": 5,
+          "stats": { "M": 5, "WS": 3, "BS": 0, "S": 3, "T": 3, "W": 1, "I": 4, "A": 2, "Ld": 5 },
+          "specialRules": ["Fly (9)", "Skirmishers"]
+        },
+        {
+          "id": "razorgor-chariots",
+          "name": "Razorgor Chariots",
+          "costPerModel": 100,
+          "minSize": 1,
+          "stats": { "M": 7, "WS": 3, "BS": 0, "S": 5, "T": 5, "W": 4, "I": 3, "A": 6, "Ld": 7 },
+          "specialRules": ["Primal Fury", "Bestial Charge", "Crushing Blows", "Mark of Chaos Undivided", "Razor Tusks", "Impact Hits (D6+2)", "Fear", "First Charge"],
+          "marks": [
+            { "name": "Mark of Khorne", "cost": 15 },
+            { "name": "Mark of Tzeentch", "cost": 20 },
+            { "name": "Mark of Nurgle", "cost": 15 },
+            { "name": "Mark of Slaanesh", "cost": 10 }
+          ]
+        },
+        {
+          "id": "chaos-ogres",
+          "name": "Chaos Ogres",
+          "costPerModel": 25,
+          "minSize": 3,
+          "stats": { "M": 6, "WS": 3, "BS": 2, "S": 4, "T": 4, "W": 3, "I": 2, "A": 3, "Ld": 7 },
+          "specialRules": ["Fear", "Impact Hits (1)"],
+          "options": [
+            { "name": "Additional Hand Weapon", "costPerModel": 2 },
+            { "name": "Great Weapon", "costPerModel": 4 },
+            { "name": "Light Armour", "costPerModel": 2 },
+            { "name": "Heavy Armour", "costPerModel": 4 },
+            { "name": "Shield", "costPerModel": 2 }
+          ],
+          "command": [
+            { "name": "Crusher", "cost": 25 },
+            { "name": "Banner", "cost": 25 },
+            { "name": "Musician", "cost": 25 }
+          ],
+          "marks": [
+            { "name": "Mark of Khorne", "costPerModel": 4 },
+            { "name": "Mark of Tzeentch", "costPerModel": 4 },
+            { "name": "Mark of Nurgle", "costPerModel": 4 },
+            { "name": "Mark of Slaanesh", "costPerModel": 4 }
+          ]
+        },
+        {
+          "id": "dragon-ogres",
+          "name": "Dragon Ogres",
+          "costPerModel": 39,
+          "minSize": 3,
+          "stats": { "M": 7, "WS": 4, "BS": 3, "S": 5, "T": 5, "W": 4, "I": 3, "A": 3, "Ld": 8 },
+          "specialRules": ["Mark of Chaos Undivided", "Fear", "Scaly Skin (5+)"],
+          "options": [
+            { "name": "Great Weapon", "costPerModel": 4 },
+            { "name": "Additional Hand Weapon", "costPerModel": 2 }
+          ]
+        },
+        {
+          "id": "chaos-trolls",
+          "name": "Chaos Trolls",
+          "costPerModel": 22,
+          "minSize": 3,
+          "stats": { "M": 6, "WS": 3, "BS": 1, "S": 5, "T": 4, "W": 3, "I": 1, "A": 3, "Ld": 4 },
+          "specialRules": ["Fear", "Regeneration (4+)", "Stupidity", "Troll Vomit"]
+        }
+      ]
+    },
+    "rare": {
+      "name": "Rare",
+      "units": [
+        {
+          "id": "ghorgon",
+          "name": "Ghorgon",
+          "cost": 230,
+          "stats": { "M": 7, "WS": 4, "BS": 0, "S": 6, "T": 6, "W": 6, "I": 4, "A": 5, "Ld": 9 },
+          "specialRules": ["Primal Fury", "Bestial Charge", "Large Target", "Terror", "Swallow Whole"]
+        },
+        {
+          "id": "cygor",
+          "name": "Cygor",
+          "cost": 210,
+          "stats": { "M": 6, "WS": 3, "BS": 2, "S": 6, "T": 6, "W": 6, "I": 2, "A": 4, "Ld": 9 },
+          "specialRules": ["Primal Fury", "Bestial Charge", "Large Target", "Terror", "Ghostsight", "Soul-Eater", "Throw Rocks"]
+        },
+        {
+          "id": "jabberslythe",
+          "name": "Jabberslythe",
+          "cost": 165,
+          "stats": { "M": 6, "WS": 4, "BS": 0, "S": 6, "T": 5, "W": 6, "I": 3, "A": 5, "Ld": 7 },
+          "specialRules": ["Primal Fury", "Bestial Charge", "Fly (9)", "Large Target", "Terror", "Maddening Aura", "Poisonous Slime"],
+          "options": [
+            { "name": "Acidic Vomit", "cost": 20 }
+          ]
+        },
+        {
+          "id": "chaos-giant",
+          "name": "Chaos Giant",
+          "cost": 170,
+          "stats": { "M": 6, "WS": 3, "BS": 3, "S": 6, "T": 5, "W": 6, "I": 3, "A": 5, "Ld": 10 },
+          "specialRules": ["Large Target", "Terror", "Stubborn", "Fall Over"],
+          "options": [
+            { "name": "Scaly Skin", "cost": 5 },
+            { "name": "Regeneration", "cost": 10 }
+          ]
+        },
+        {
+          "id": "gigantic-spawn",
+          "name": "Gigantic Spawn of Chaos",
+          "cost": 175,
+          "stats": { "M": 6, "WS": 3, "BS": 0, "S": 5, "T": 6, "W": 6, "I": 2, "A": 5, "Ld": 10 },
+          "specialRules": ["Large Target", "Random Movement", "Random Attacks", "Fear", "Immune to Psychology"],
+          "marks": [
+            { "name": "Mark of Khorne", "cost": 30 },
+            { "name": "Mark of Tzeentch", "cost": 40 },
+            { "name": "Mark of Nurgle", "cost": 30 },
+            { "name": "Mark of Slaanesh", "cost": 20 }
+          ]
+        },
+        {
+          "id": "chaos-spawn",
+          "name": "Chaos Spawn",
+          "costPerModel": 37,
+          "minSize": 1,
+          "stats": { "M": 6, "WS": 3, "BS": 0, "S": 5, "T": 5, "W": 3, "I": 2, "A": 3, "Ld": 10 },
+          "specialRules": ["Random Movement", "Random Attacks", "Fear", "Immune to Psychology"],
+          "marks": [
+            { "name": "Mark of Khorne", "costPerModel": 4 },
+            { "name": "Mark of Tzeentch", "costPerModel": 4 },
+            { "name": "Mark of Nurgle", "costPerModel": 4 },
+            { "name": "Mark of Slaanesh", "costPerModel": 4 }
+          ]
+        },
+        {
+          "id": "dragon-ogre-shaggoth",
+          "name": "Dragon Ogre Shaggoth",
+          "cost": 220,
+          "stats": { "M": 7, "WS": 5, "BS": 3, "S": 6, "T": 5, "W": 6, "I": 4, "A": 5, "Ld": 8 },
+          "specialRules": ["Mark of Chaos Undivided", "Crushing Blows", "Large Target", "Terror", "Scaly Skin (5+)"],
+          "options": [
+            { "name": "Great Weapon", "cost": 4 },
+            { "name": "Additional Hand Weapon", "cost": 3 }
+          ]
+        },
+        {
+          "id": "cockatrice",
+          "name": "Cockatrice",
+          "cost": 165,
+          "stats": { "M": 4, "WS": 4, "BS": 0, "S": 5, "T": 5, "W": 4, "I": 3, "A": 3, "Ld": 7 },
+          "specialRules": ["Fly (8)", "Large Target", "Terror", "Petrifying Gaze", "Stony Stare"]
+        },
+        {
+          "id": "preyton",
+          "name": "Preyton",
+          "cost": 155,
+          "stats": { "M": 4, "WS": 5, "BS": 0, "S": 5, "T": 5, "W": 4, "I": 4, "A": 4, "Ld": 7 },
+          "specialRules": ["Primal Fury", "Bestial Charge", "Fly (9)", "Large Target", "Terror", "Crown of Antlers"]
+        }
+      ]
+    }
+  },
+  "magicItems": {
+    "weapons": [
+      { "id": "primeval-club", "name": "Primeval Club", "cost": 60, "description": "Strength = User's LD. AP-3, Armour Bane (2), Magical Attacks" },
+      { "id": "axes-khorgor", "name": "Axes of Khorgor", "cost": 50, "description": "S+1, AP-2, Armour Bane (1), Two-Handed, Extra Attack (+1). Re-roll hits and wounds in close combat" },
+      { "id": "herdstone-axe", "name": "Herdstone Axe", "cost": 40, "description": "S+2, AP-3, Two-Handed, Strikes Last. If D6 exceeds remaining wounds after successful wound, model is slain" },
+      { "id": "hunters-spear", "name": "Hunter's Spear", "cost": 35, "description": "S+1, AP-2, Cumbersome, Multiple Wounds (2), Through and Through. Can be shot like a Bolt Thrower" },
+      { "id": "brass-cleaver", "name": "Brass Cleaver", "cost": 30, "description": "S User, AP-2. Enemy models cannot use Armour, Ward or Regeneration saves against this weapon" },
+      { "id": "axe-of-men", "name": "Axe of Men", "cost": 25, "description": "S+2, AP-3, Two-Handed, Killing Blow. Auto-Frenzy vs humans. Gain Terror if kill character in challenge" },
+      { "id": "slaughterers-blades", "name": "Slaughterer's Blades", "cost": 20, "description": "Minotaur only. S User, AP-2, Two-Handed, Extra Attack (+1). +1A per enemy model in base contact", "restrictedTo": ["doombull", "gorebull"] }
+    ],
+    "armour": [
+      { "id": "festerpelt", "name": "Festerpelt", "cost": 25, "description": "May be worn with other armour. +1 armour save, Regeneration (5+)" },
+      { "id": "brass-armour", "name": "Brass Armour", "cost": 15, "description": "2+ armour save. Any 6s to hit or wound ignore wearer's armour" },
+      { "id": "ramhorn-helm", "name": "Ramhorn Helm", "cost": 10, "description": "May be worn with other armour. +1 armour save. For each armour save passed, make bonus attack at base Strength" }
+    ],
+    "talismans": [
+      { "id": "shadowgave-furs", "name": "Shadowgave Furs", "cost": 35, "description": "All shooting -1 To Hit vs bearer/unit. Successful scatter hits must be re-rolled" },
+      { "id": "blackened-talisman", "name": "Blackened Talisman of Chaos", "cost": 30, "description": "4+ ward save (becomes 6+ vs Killing Blow/Multiple Wounds)" },
+      { "id": "eye-of-night", "name": "Eye of the Night", "cost": 25, "description": "Magic Resistance (2). Force enemy Wizard within 24\" to re-roll Miscast table result" }
+    ],
+    "enchanted": [
+      { "id": "chalice-dark-rain", "name": "Chalice of Dark Rain", "cost": 50, "description": "Single use. Halve enemy missile weapon range, war machines cannot shoot until your next turn" },
+      { "id": "horns-first-beast", "name": "Horns of the First Beast", "cost": 35, "description": "Friendly units within 18\" may use bearer's LD for Primal Fury tests" },
+      { "id": "brayblast-trumpet", "name": "Brayblast Trumpet", "cost": 30, "description": "Single use. All friendly Ambushers may re-roll failed arrival attempts this turn" },
+      { "id": "dark-heart", "name": "Dark Heart", "cost": 25, "description": "Single use. Roll D6: 1=Stupidity, 2=+1T, 3=+1WS, 4=+1A, 5=Strike First, 6=All bonuses+1LD" },
+      { "id": "stone-of-spite", "name": "Stone of Spite", "cost": 20, "description": "Single use. Destroy all Arcane Items within 18\". Each bearer suffers D6 S4 hits per item" },
+      { "id": "skin-of-man", "name": "Skin of Man", "cost": 15, "description": "Bearer and unit gain Fear. Humans roll extra D6 and discard lowest vs this Fear" }
+    ],
+    "arcane": [
+      { "id": "shard-herdstone", "name": "Shard of the Herdstone", "cost": 40, "description": "Single use. +2D3 casting dice during your Magic Phase", "wizardOnly": true },
+      { "id": "gnarlstaff", "name": "Gnarlstaff", "cost": 30, "description": "+1 to casting/channeling. Each Magic Phase: pick terrain within 18\", D6 S4 AP-1 hits to units within (2D6 if forest)", "wizardOnly": true },
+      { "id": "hagtree-fetish", "name": "Hagtree Fetish", "cost": 25, "description": "Choose enemy unit within 24\" each Magic Phase. Re-roll failed wounds vs that unit during Magic Phase", "wizardOnly": true }
+    ],
+    "standards": [
+      { "id": "rampaging-banner", "name": "Rampaging Banner", "cost": 40, "description": "Friendly Beastmen within 12\": +3\" max charge range, +D3 to charge rolls" },
+      { "id": "manbane-standard", "name": "Manbane Standard", "cost": 30, "description": "Enemy units within 12\" suffer -1 LD (min 2)" },
+      { "id": "totem-of-rust", "name": "Totem of Rust", "cost": 25, "description": "Enemy units in contact suffer -1 to Armour Save rolls" },
+      { "id": "gore-banner", "name": "Gore Banner", "cost": 20, "description": "Unit carrying banner gains Terror" },
+      { "id": "banner-of-outrage", "name": "Banner of Outrage", "cost": 15, "description": "Roll extra D6 for Primal Fury tests, discard one die of choice" }
+    ]
+  }
+}
