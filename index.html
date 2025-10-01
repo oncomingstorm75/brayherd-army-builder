@@ -212,7 +212,7 @@
             gap: 8px;
         }
         
-        input[type="checkbox"] {
+        input[type="checkbox"], input[type="radio"] {
             width: 18px;
             height: 18px;
             cursor: pointer;
@@ -239,50 +239,86 @@
             min-width: 120px;
         }
         
-        .magic-items-section {
+        .magic-items-section, .marks-section, .mutations-section {
             margin-top: 15px;
             padding-top: 15px;
             border-top: 1px solid #6b3410;
         }
         
-        .magic-item-category {
+        .section-title {
+            color: #d4af37;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .magic-item-category, .mark-options, .mutation-list {
             margin-bottom: 15px;
         }
         
         .magic-item-title {
-            color: #d4af37;
-            font-size: 1em;
+            color: #ff6b35;
+            font-size: 0.95em;
             margin-bottom: 8px;
             font-weight: bold;
         }
         
-        .magic-item {
+        .magic-item, .mutation-item {
             padding: 8px;
             background: rgba(0, 0, 0, 0.3);
             border-radius: 3px;
             margin-bottom: 5px;
             cursor: pointer;
             transition: background 0.2s;
+            border: 1px solid transparent;
         }
         
-        .magic-item:hover {
+        .magic-item:hover, .mutation-item:hover {
             background: rgba(0, 0, 0, 0.5);
         }
         
-        .magic-item.selected {
+        .magic-item.selected, .mutation-item.selected {
             background: rgba(139, 69, 19, 0.4);
             border: 1px solid #d4af37;
         }
         
-        .magic-item-header {
+        .magic-item-header, .mutation-header {
             display: flex;
             justify-content: space-between;
             margin-bottom: 3px;
         }
         
-        .magic-item-desc {
+        .magic-item-desc, .mutation-desc {
             font-size: 0.85em;
             color: #aaa;
+        }
+        
+        .mark-radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .mark-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 3px;
+        }
+        
+        .mark-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        
+        .limit-warning {
+            color: #ff6b6b;
+            font-size: 0.9em;
+            margin-top: 5px;
         }
         
         .error-message {
@@ -304,12 +340,18 @@
             gap: 10px;
             margin: 10px 0;
         }
+        
+        .mutations-spent {
+            color: #aaa;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🐐 Beastmen Brayherds Army Builder 🐐</h1>
+            <h1>Beastmen Brayherds Army Builder</h1>
             <div class="points-total">Total Points: <span id="totalPoints">0</span></div>
         </header>
         
@@ -425,7 +467,9 @@
                 unitData: unit,
                 modelCount: unit.minSize || 1,
                 selectedOptions: [],
-                selectedMagicItems: []
+                selectedMagicItems: [],
+                selectedMark: null,
+                selectedMutations: []
             };
             
             currentArmy.push(armyUnit);
@@ -488,6 +532,57 @@
                 card.appendChild(modelCount);
             }
             
+            // Marks of Chaos
+            if (armyUnit.unitData.marks && armyUnit.unitData.marks.length > 0) {
+                const marksDiv = document.createElement('div');
+                marksDiv.className = 'marks-section';
+                marksDiv.innerHTML = '<div class="section-title">Mark of Chaos</div>';
+                
+                const markRadioGroup = document.createElement('div');
+                markRadioGroup.className = 'mark-radio-group';
+                
+                // Add "None" option (Mark of Chaos Undivided - free)
+                const noneOption = document.createElement('div');
+                noneOption.className = 'mark-option';
+                noneOption.innerHTML = `
+                    <label class="mark-label">
+                        <input type="radio" 
+                               name="mark-${armyUnit.id}" 
+                               value="none"
+                               ${!armyUnit.selectedMark ? 'checked' : ''}
+                               onchange="selectMark(${armyUnit.id}, null)">
+                        Mark of Chaos Undivided
+                    </label>
+                    <span class="unit-cost">0 pts</span>
+                `;
+                markRadioGroup.appendChild(noneOption);
+                
+                armyUnit.unitData.marks.forEach(mark => {
+                    const markOption = document.createElement('div');
+                    markOption.className = 'mark-option';
+                    
+                    const totalCost = mark.costPerModel 
+                        ? mark.costPerModel * armyUnit.modelCount 
+                        : mark.cost;
+                    
+                    markOption.innerHTML = `
+                        <label class="mark-label">
+                            <input type="radio" 
+                                   name="mark-${armyUnit.id}" 
+                                   value="${mark.name}"
+                                   ${armyUnit.selectedMark === mark.name ? 'checked' : ''}
+                                   onchange="selectMark(${armyUnit.id}, '${mark.name}')">
+                            ${mark.name}
+                        </label>
+                        <span class="unit-cost">${totalCost} pts</span>
+                    `;
+                    markRadioGroup.appendChild(markOption);
+                });
+                
+                marksDiv.appendChild(markRadioGroup);
+                card.appendChild(marksDiv);
+            }
+            
             // Options
             if (armyUnit.unitData.options && armyUnit.unitData.options.length > 0) {
                 const optionsDiv = document.createElement('div');
@@ -522,11 +617,78 @@
                 card.appendChild(optionsDiv);
             }
             
+            // Command upgrades
+            if (armyUnit.unitData.command && armyUnit.unitData.command.length > 0) {
+                const commandDiv = document.createElement('div');
+                commandDiv.className = 'options-container';
+                
+                armyUnit.unitData.command.forEach(cmd => {
+                    const cmdItem = document.createElement('div');
+                    cmdItem.className = 'option-item';
+                    
+                    const checkbox = document.createElement('div');
+                    checkbox.className = 'option-checkbox';
+                    checkbox.innerHTML = `
+                        <input type="checkbox" 
+                               id="cmd-${armyUnit.id}-${cmd.name}" 
+                               ${armyUnit.selectedOptions.includes(cmd.name) ? 'checked' : ''}
+                               onchange="toggleOption(${armyUnit.id}, '${cmd.name}')">
+                        <label for="cmd-${armyUnit.id}-${cmd.name}">${cmd.name}</label>
+                    `;
+                    
+                    const cmdCost = document.createElement('div');
+                    cmdCost.className = 'unit-cost';
+                    cmdCost.textContent = `${cmd.cost} pts`;
+                    
+                    cmdItem.appendChild(checkbox);
+                    cmdItem.appendChild(cmdCost);
+                    commandDiv.appendChild(cmdItem);
+                });
+                
+                card.appendChild(commandDiv);
+            }
+            
+            // Chaos Mutations for characters
+            if (armyUnit.unitData.magicItemLimit && armyData.chaosMutations) {
+                const mutationsDiv = document.createElement('div');
+                mutationsDiv.className = 'mutations-section';
+                mutationsDiv.innerHTML = '<div class="section-title">Chaos Mutations (Gifts of Chaos)</div>';
+                
+                const mutationLimit = 50;
+                const spentPoints = calculateMutationsTotal(armyUnit);
+                mutationsDiv.innerHTML += `<div class="mutations-spent" style="color: ${spentPoints > mutationLimit ? '#ff6b6b' : '#aaa'}">
+                    ${spentPoints} / ${mutationLimit} pts spent
+                </div>`;
+                
+                const mutationList = document.createElement('div');
+                mutationList.className = 'mutation-list';
+                
+                armyData.chaosMutations.forEach(mutation => {
+                    const mutationItem = document.createElement('div');
+                    mutationItem.className = 'mutation-item';
+                    if (armyUnit.selectedMutations.includes(mutation.id)) {
+                        mutationItem.classList.add('selected');
+                    }
+                    mutationItem.onclick = () => toggleMutation(armyUnit.id, mutation.id);
+                    mutationItem.innerHTML = `
+                        <div class="mutation-header">
+                            <span>${mutation.name}</span>
+                            <span class="unit-cost">${mutation.cost} pts</span>
+                        </div>
+                        <div class="mutation-desc">${mutation.description}</div>
+                    `;
+                    mutationList.appendChild(mutationItem);
+                });
+                
+                mutationsDiv.appendChild(mutationList);
+                card.appendChild(mutationsDiv);
+            }
+            
             // Magic Items for characters
             if (armyUnit.unitData.magicItemLimit) {
                 const magicDiv = document.createElement('div');
                 magicDiv.className = 'magic-items-section';
-                magicDiv.innerHTML = '<div class="magic-item-title">Magic Items</div>';
+                magicDiv.innerHTML = '<div class="section-title">Magic Items</div>';
                 
                 const spentPoints = calculateMagicItemsTotal(armyUnit);
                 const limit = armyUnit.unitData.magicItemLimit;
@@ -534,10 +696,10 @@
                     ${spentPoints} / ${limit} pts spent
                 </div>`;
                 
-                ['weapons', 'armour', 'talismans', 'enchanted', 'arcane'].forEach(category => {
+                ['weapons', 'armour', 'talismans', 'enchanted', 'arcane', 'standards'].forEach(category => {
                     if (armyData.magicItems[category]) {
                         const items = armyData.magicItems[category].filter(item => {
-                            if (item.wizardOnly && !armyUnit.unitData.specialRules.includes('Wizard')) return false;
+                            if (item.wizardOnly && !armyUnit.unitData.specialRules.some(r => r.includes('Wizard'))) return false;
                             if (item.restrictedTo && !item.restrictedTo.includes(armyUnit.unitData.id)) return false;
                             return true;
                         });
@@ -545,7 +707,7 @@
                         if (items.length > 0) {
                             const catDiv = document.createElement('div');
                             catDiv.className = 'magic-item-category';
-                            catDiv.innerHTML = `<div style="color: #ff6b35; font-size: 0.9em; margin-top: 10px;">${category.charAt(0).toUpperCase() + category.slice(1)}</div>`;
+                            catDiv.innerHTML = `<div class="magic-item-title">${category.charAt(0).toUpperCase() + category.slice(1)}</div>`;
                             
                             items.forEach(item => {
                                 const itemDiv = document.createElement('div');
@@ -590,6 +752,16 @@
             }
         }
 
+        function selectMark(unitId, markName) {
+            const unit = currentArmy.find(u => u.id === unitId);
+            if (unit) {
+                unit.selectedMark = markName;
+                renderArmyList();
+                updateTotalPoints();
+                saveArmyToStorage();
+            }
+        }
+
         function toggleOption(unitId, optionName) {
             const unit = currentArmy.find(u => u.id === unitId);
             if (unit) {
@@ -598,6 +770,32 @@
                     unit.selectedOptions.splice(index, 1);
                 } else {
                     unit.selectedOptions.push(optionName);
+                }
+                renderArmyList();
+                updateTotalPoints();
+                saveArmyToStorage();
+            }
+        }
+
+        function toggleMutation(unitId, mutationId) {
+            const unit = currentArmy.find(u => u.id === unitId);
+            if (unit) {
+                const index = unit.selectedMutations.indexOf(mutationId);
+                if (index > -1) {
+                    unit.selectedMutations.splice(index, 1);
+                } else {
+                    // Check if it's "one per army"
+                    const mutation = armyData.chaosMutations.find(m => m.id === mutationId);
+                    const alreadyTaken = currentArmy.some(u => 
+                        u.id !== unitId && u.selectedMutations.includes(mutationId)
+                    );
+                    
+                    if (alreadyTaken) {
+                        alert(`${mutation.name} can only be taken once per army!`);
+                        return;
+                    }
+                    
+                    unit.selectedMutations.push(mutationId);
                 }
                 renderArmyList();
                 updateTotalPoints();
@@ -625,20 +823,50 @@
                 ? armyUnit.unitData.costPerModel * armyUnit.modelCount
                 : armyUnit.unitData.cost;
             
+            // Add mark cost
+            if (armyUnit.selectedMark && armyUnit.unitData.marks) {
+                const mark = armyUnit.unitData.marks.find(m => m.name === armyUnit.selectedMark);
+                if (mark) {
+                    cost += mark.costPerModel 
+                        ? mark.costPerModel * armyUnit.modelCount
+                        : mark.cost;
+                }
+            }
+            
             // Add option costs
             armyUnit.selectedOptions.forEach(optName => {
-                const option = armyUnit.unitData.options.find(o => o.name === optName);
+                const option = armyUnit.unitData.options?.find(o => o.name === optName);
                 if (option) {
                     cost += option.costPerModel 
                         ? option.costPerModel * armyUnit.modelCount
                         : option.cost;
                 }
+                
+                // Check command options
+                const command = armyUnit.unitData.command?.find(c => c.name === optName);
+                if (command) {
+                    cost += command.cost;
+                }
             });
+            
+            // Add mutation costs
+            cost += calculateMutationsTotal(armyUnit);
             
             // Add magic item costs
             cost += calculateMagicItemsTotal(armyUnit);
             
             return cost;
+        }
+
+        function calculateMutationsTotal(armyUnit) {
+            let total = 0;
+            if (armyData.chaosMutations) {
+                armyUnit.selectedMutations.forEach(mutId => {
+                    const mutation = armyData.chaosMutations.find(m => m.id === mutId);
+                    if (mutation) total += mutation.cost;
+                });
+            }
+            return total;
         }
 
         function calculateMagicItemsTotal(armyUnit) {
@@ -684,6 +912,11 @@
             const saved = localStorage.getItem('beastmenArmy');
             if (saved) {
                 currentArmy = JSON.parse(saved);
+                // Ensure all units have the new properties
+                currentArmy.forEach(unit => {
+                    if (!unit.selectedMutations) unit.selectedMutations = [];
+                    if (!unit.selectedMark) unit.selectedMark = null;
+                });
                 renderArmyList();
                 updateTotalPoints();
             }
@@ -709,6 +942,11 @@
                 reader.onload = event => {
                     try {
                         currentArmy = JSON.parse(event.target.result);
+                        // Ensure backwards compatibility
+                        currentArmy.forEach(unit => {
+                            if (!unit.selectedMutations) unit.selectedMutations = [];
+                            if (!unit.selectedMark) unit.selectedMark = null;
+                        });
                         renderArmyList();
                         updateTotalPoints();
                         saveArmyToStorage();
@@ -732,8 +970,20 @@
                 }
                 text += ` - ${calculateUnitCost(armyUnit)} pts\n`;
                 
+                if (armyUnit.selectedMark) {
+                    text += `  Mark: ${armyUnit.selectedMark}\n`;
+                }
+                
                 if (armyUnit.selectedOptions.length > 0) {
                     text += `  Options: ${armyUnit.selectedOptions.join(', ')}\n`;
+                }
+                
+                if (armyUnit.selectedMutations.length > 0) {
+                    const mutations = armyUnit.selectedMutations.map(mutId => {
+                        const mut = armyData.chaosMutations.find(m => m.id === mutId);
+                        return mut ? mut.name : mutId;
+                    });
+                    text += `  Mutations: ${mutations.join(', ')}\n`;
                 }
                 
                 if (armyUnit.selectedMagicItems.length > 0) {
