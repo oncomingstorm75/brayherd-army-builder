@@ -2,128 +2,158 @@
   "armyName": "Beastmen Brayherds",
   "version": "1.0",
   "categories": {
-    "lords": {
-      "name": "Lords",
-      "units": [
-        {
-          "id": "beastlord",
-          "name": "Beastlord",
-          "cost": 135,
-          "stats": { "M": 5, "WS": 6, "BS": 3, "S": 5, "T": 5, "W": 3, "I": 5, "A": 4, "Ld": 9 },
-          "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Crushing Blows", "Warband"],
-          "options": [
-            { "name": "Additional Hand Weapon", "cost": 3 },
-            { "name": "Great Weapon", "cost": 4 },
-            { "name": "Light Armour", "cost": 2 },
-            { "name": "Heavy Armour", "cost": 4 },
-            { "name": "Shield", "cost": 2 },
-            { "name": "Chaos Steed", "cost": 12 },
-            { "name": "Tuskgor Chariot", "cost": 90 },
-            { "name": "Razorgor Chariot", "cost": 120 },
-            { "name": "Ambushers", "cost": 10 },
-            { "name": "Brayhorn", "cost": 10 }
-          ],
-          "magicItemLimit": 100,
-          "canBeBSB": true,
-          "canBeGeneral": true
-        },
-        {
-          "id": "doombull",
-          "name": "Doombull",
-          "cost": 225,
-          "stats": { "M": 6, "WS": 6, "BS": 3, "S": 6, "T": 5, "W": 4, "I": 4, "A": 5, "Ld": 8 },
-          "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Crushing Blows", "Warband"],
-          "options": [
-            { "name": "Additional Hand Weapon", "cost": 3 },
-            { "name": "Great Weapon", "cost": 4 },
-            { "name": "Light Armour", "cost": 2 },
-            { "name": "Heavy Armour", "cost": 4 },
-            { "name": "Shield", "cost": 5 }
-          ],
-          "magicItemLimit": 100
-        },
-        {
-          "id": "great-bray-shaman",
-          "name": "Great Bray-Shaman",
-          "cost": 135,
-          "stats": { "M": 5, "WS": 4, "BS": 3, "S": 4, "T": 4, "W": 3, "I": 4, "A": 2, "Ld": 8 },
-          "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Warband", "Wizard Level 3"],
-          "options": [
-            { "name": "Braystaff", "cost": 0 },
-            { "name": "Wizard Level 4", "cost": 30 }
-          ],
-          "magicItemLimit": 100
-        }
+  "lords": {
+  "name": "Lords",
+  "units": [
+    {
+      "id": "beastlord",
+      "name": "Beastlord",
+      "cost": 135,
+      "stats": { "M": 5, "WS": 6, "BS": 3, "S": 5, "T": 5, "W": 3, "I": 5, "A": 4, "Ld": 9 },
+      "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Crushing Blows", "Warband"],
+      "options": [
+        { "name": "Additional Hand Weapon", "cost": 3 },
+        { "name": "Great Weapon", "cost": 4 },
+        { "name": "Light Armour", "cost": 2 },
+        { "name": "Heavy Armour", "cost": 4 },
+        { "name": "Shield", "cost": 2 },
+        { "name": "Chaos Steed", "cost": 12 },
+        { "name": "Tuskgor Chariot", "cost": 90 },
+        { "name": "Razorgor Chariot", "cost": 120 },
+        { "name": "Ambushers", "cost": 10 },
+        { "name": "Brayhorn", "cost": 10 }
+      ],
+      "magicItemLimit": 100,
+      "canBeBSB": true,
+      "canBeGeneral": true,
+      "marks": [
+        { "name": "Mark of Khorne", "cost": 15 },
+        { "name": "Mark of Tzeentch", "cost": 20 },
+        { "name": "Mark of Nurgle", "cost": 15 },
+        { "name": "Mark of Slaanesh", "cost": 10 }
       ]
     },
-    "heroes": {
-      "name": "Heroes",
-      "units": [
-        {
-          "id": "wargor",
-          "name": "Wargor",
-          "cost": 50,
-          "stats": { "M": 5, "WS": 5, "BS": 3, "S": 4, "T": 4, "W": 2, "I": 4, "A": 3, "Ld": 7 },
-          "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Warband"],
-          "options": [
-            { "name": "Additional Hand Weapon", "cost": 3 },
-            { "name": "Great Weapon", "cost": 4 },
-            { "name": "Light Armour", "cost": 2 },
-            { "name": "Heavy Armour", "cost": 4 },
-            { "name": "Shield", "cost": 2 },
-            { "name": "Chaos Steed", "cost": 12 },
-            { "name": "Tuskgor Chariot", "cost": 90 },
-            { "name": "Ambushers", "cost": 10 },
-            { "name": "Brayhorn", "cost": 10 }
-          ],
-          "magicItemLimit": 50,
-          "canBeBSB": true,
-          "canBeGeneral": true
-        },
-        {
-          "id": "gorebull",
-          "name": "Gorebull",
-          "cost": 115,
-          "stats": { "M": 6, "WS": 5, "BS": 3, "S": 5, "T": 5, "W": 4, "I": 4, "A": 4, "Ld": 7 },
-          "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Crushing Blows", "Warband"],
-          "options": [
-            { "name": "Additional Hand Weapon", "cost": 3 },
-            { "name": "Great Weapon", "cost": 4 },
-            { "name": "Light Armour", "cost": 2 },
-            { "name": "Heavy Armour", "cost": 4 },
-            { "name": "Shield", "cost": 5 }
-          ],
-          "magicItemLimit": 50
-        },
-        {
-          "id": "bray-shaman",
-          "name": "Bray-Shaman",
-          "cost": 65,
-          "stats": { "M": 5, "WS": 4, "BS": 3, "S": 4, "T": 4, "W": 2, "I": 4, "A": 1, "Ld": 7 },
-          "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Warband", "Wizard Level 1"],
-          "options": [
-            { "name": "Braystaff", "cost": 0 },
-            { "name": "Wizard Level 2", "cost": 30 }
-          ],
-          "magicItemLimit": 50
-        },
-        {
-          "id": "centigor-chieftain",
-          "name": "Centigor Chieftain",
-          "cost": 85,
-          "stats": { "M": 8, "WS": 5, "BS": 3, "S": 4, "T": 4, "W": 2, "I": 4, "A": 3, "Ld": 8 },
-          "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Crushing Blows", "Warband", "Fast Cavalry", "Drunken"],
-          "options": [
-            { "name": "Additional Hand Weapon", "cost": 3 },
-            { "name": "Great Weapon", "cost": 4 },
-            { "name": "Light Armour", "cost": 2 },
-            { "name": "Heavy Armour", "cost": 4 },
-            { "name": "Shield", "cost": 2 }
-          ],
-          "magicItemLimit": 50
-        }
+    {
+      "id": "doombull",
+      "name": "Doombull",
+      "cost": 225,
+      "stats": { "M": 6, "WS": 6, "BS": 3, "S": 6, "T": 5, "W": 4, "I": 4, "A": 5, "Ld": 8 },
+      "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Crushing Blows", "Warband"],
+      "options": [
+        { "name": "Additional Hand Weapon", "cost": 3 },
+        { "name": "Great Weapon", "cost": 4 },
+        { "name": "Light Armour", "cost": 2 },
+        { "name": "Heavy Armour", "cost": 4 },
+        { "name": "Shield", "cost": 5 }
+      ],
+      "magicItemLimit": 100,
+      "marks": [
+        { "name": "Mark of Khorne", "cost": 15 },
+        { "name": "Mark of Tzeentch", "cost": 20 },
+        { "name": "Mark of Nurgle", "cost": 15 },
+        { "name": "Mark of Slaanesh", "cost": 10 }
       ]
     },
+    {
+      "id": "great-bray-shaman",
+      "name": "Great Bray-Shaman",
+      "cost": 135,
+      "stats": { "M": 5, "WS": 4, "BS": 3, "S": 4, "T": 4, "W": 3, "I": 4, "A": 2, "Ld": 8 },
+      "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Warband", "Wizard Level 3"],
+      "options": [
+        { "name": "Braystaff", "cost": 0 },
+        { "name": "Wizard Level 4", "cost": 30 }
+      ],
+      "magicItemLimit": 100
+    }
+  ]
+},
+"heroes": {
+  "name": "Heroes",
+  "units": [
+    {
+      "id": "wargor",
+      "name": "Wargor",
+      "cost": 50,
+      "stats": { "M": 5, "WS": 5, "BS": 3, "S": 4, "T": 4, "W": 2, "I": 4, "A": 3, "Ld": 7 },
+      "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Warband"],
+      "options": [
+        { "name": "Additional Hand Weapon", "cost": 3 },
+        { "name": "Great Weapon", "cost": 4 },
+        { "name": "Light Armour", "cost": 2 },
+        { "name": "Heavy Armour", "cost": 4 },
+        { "name": "Shield", "cost": 2 },
+        { "name": "Chaos Steed", "cost": 12 },
+        { "name": "Tuskgor Chariot", "cost": 90 },
+        { "name": "Ambushers", "cost": 10 },
+        { "name": "Brayhorn", "cost": 10 }
+      ],
+      "magicItemLimit": 50,
+      "canBeBSB": true,
+      "canBeGeneral": true,
+      "marks": [
+        { "name": "Mark of Khorne", "cost": 15 },
+        { "name": "Mark of Tzeentch", "cost": 20 },
+        { "name": "Mark of Nurgle", "cost": 15 },
+        { "name": "Mark of Slaanesh", "cost": 10 }
+      ]
+    },
+    {
+      "id": "gorebull",
+      "name": "Gorebull",
+      "cost": 115,
+      "stats": { "M": 6, "WS": 5, "BS": 3, "S": 5, "T": 5, "W": 4, "I": 4, "A": 4, "Ld": 7 },
+      "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Crushing Blows", "Warband"],
+      "options": [
+        { "name": "Additional Hand Weapon", "cost": 3 },
+        { "name": "Great Weapon", "cost": 4 },
+        { "name": "Light Armour", "cost": 2 },
+        { "name": "Heavy Armour", "cost": 4 },
+        { "name": "Shield", "cost": 5 }
+      ],
+      "magicItemLimit": 50,
+      "marks": [
+        { "name": "Mark of Khorne", "cost": 15 },
+        { "name": "Mark of Tzeentch", "cost": 20 },
+        { "name": "Mark of Nurgle", "cost": 15 },
+        { "name": "Mark of Slaanesh", "cost": 10 }
+      ]
+    },
+    {
+      "id": "bray-shaman",
+      "name": "Bray-Shaman",
+      "cost": 65,
+      "stats": { "M": 5, "WS": 4, "BS": 3, "S": 4, "T": 4, "W": 2, "I": 4, "A": 1, "Ld": 7 },
+      "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Warband", "Wizard Level 1"],
+      "options": [
+        { "name": "Braystaff", "cost": 0 },
+        { "name": "Wizard Level 2", "cost": 30 }
+      ],
+      "magicItemLimit": 50
+    },
+    {
+      "id": "centigor-chieftain",
+      "name": "Centigor Chieftain",
+      "cost": 85,
+      "stats": { "M": 8, "WS": 5, "BS": 3, "S": 4, "T": 4, "W": 2, "I": 4, "A": 3, "Ld": 8 },
+      "specialRules": ["Primal Fury", "Mark of Chaos Undivided", "Crushing Blows", "Warband", "Fast Cavalry", "Drunken"],
+      "options": [
+        { "name": "Additional Hand Weapon", "cost": 3 },
+        { "name": "Great Weapon", "cost": 4 },
+        { "name": "Light Armour", "cost": 2 },
+        { "name": "Heavy Armour", "cost": 4 },
+        { "name": "Shield", "cost": 2 }
+      ],
+      "magicItemLimit": 50,
+      "marks": [
+        { "name": "Mark of Khorne", "cost": 15 },
+        { "name": "Mark of Tzeentch", "cost": 20 },
+        { "name": "Mark of Nurgle", "cost": 15 },
+        { "name": "Mark of Slaanesh", "cost": 10 }
+      ]
+    }
+  ]
+},
     "core": {
       "name": "Core",
       "units": [
